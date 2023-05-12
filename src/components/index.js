@@ -1,3 +1,5 @@
 import Image from "./Image";
+import Input from "./Input";
+import Button from "./Button";
 
-export { Image };
+export { Image, Input, Button };

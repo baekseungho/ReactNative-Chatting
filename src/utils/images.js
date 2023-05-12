@@ -3,4 +3,5 @@ const prefix =
 
 export const images = {
   logo: `${prefix}Codeunity_logo__1_4.png?alt=media`,
+  photo: `${prefix}138639186430.jpg?alt=media`,
 };
