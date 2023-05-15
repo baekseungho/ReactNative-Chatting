@@ -1,3 +1,7 @@
-import { ProgressContext, ProgressProvider } from "./Progress";
+// contexts/index.js
 
-export { ProgressContext, ProgressProvider };
+import { ProgressContext,ProgressProvider } from './Progress';
+import { UserContext,UserProvider } from './User';
+
+
+export { ProgressContext, ProgressProvider,UserContext,UserProvider};

@@ -37,4 +37,15 @@ export const theme = {
   // Spinner컴포넌트에서 사용
   spinnerBackground: colors.black,
   spinnerIndicator: colors.white,
+
+  //Navigation 에서 사용
+  headerTintColor: colors.black,
+  tabInactiveColor: colors.gray_1,
+  tabActiveColor: colors.blue,
+
+  //chatlist에서 사용
+  listBorder: colors.gray_0,
+  listTime: colors.red,
+  listDescription: colors.gray_1,
+  listIcon: colors.black,
 };

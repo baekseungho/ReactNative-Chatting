@@ -6,7 +6,7 @@ import { validateEmail, removeWhitespace } from "../utils/common";
 import { images } from "../utils/images";
 import { Alert } from "react-native";
 import { signup } from "../utils/firebase";
-import { ProgressContext } from "../contexts";
+import { ProgressContext, UserContext } from "../contexts";
 
 const Container = styled.View`
   flex: 1;
@@ -39,6 +39,7 @@ const Signup = () => {
   const didMountRef = useRef();
 
   const { spinner } = useContext(ProgressContext);
+  const { dispatch } = useContext(UserContext);
 
   useEffect(() => {
     // 로그인 버튼 활성화 여부 (이메일, 패스워드값존재, 에러메시지 값없음)
@@ -69,7 +70,8 @@ const Signup = () => {
     try {
       spinner.start();
       const user = await signup({ email, password, name, photourl });
-      Alert.alert("가입 성공", user.email);
+      // Alert.alert("가입 성공", user.email);
+      dispatch(user);
     } catch (e) {
       Alert.alert("가입 오류", e.message);
     } finally {
