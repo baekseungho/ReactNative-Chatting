@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import styled from "styled-components/native";
 import { Image, Input, Button } from "../components";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -6,6 +6,7 @@ import { validateEmail, removeWhitespace } from "../utils/common";
 import { images } from "../utils/images";
 import { Alert } from "react-native";
 import { signup } from "../utils/firebase";
+import { ProgressContext } from "../contexts";
 
 const Container = styled.View`
   flex: 1;
@@ -35,8 +36,9 @@ const Signup = () => {
   const passwordRef = useRef();
   const emailRef = useRef();
   const passwordConfirmRef = useRef();
-
   const didMountRef = useRef();
+
+  const { spinner } = useContext(ProgressContext);
 
   useEffect(() => {
     // 로그인 버튼 활성화 여부 (이메일, 패스워드값존재, 에러메시지 값없음)
@@ -65,10 +67,13 @@ const Signup = () => {
 
   const _handleSignupButton = async () => {
     try {
-      const user = await signup({ email, password });
+      spinner.start();
+      const user = await signup({ email, password, name, photourl });
       Alert.alert("가입 성공", user.email);
     } catch (e) {
       Alert.alert("가입 오류", e.message);
+    } finally {
+      spinner.stop();
     }
   };
   return (

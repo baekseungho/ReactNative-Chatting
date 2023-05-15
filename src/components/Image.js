@@ -49,7 +49,7 @@ const Image = ({ url, imageStyle, rounded, showButton, onChangeImage }) => {
   useEffect(() => {
     (async () => {
       try {
-        if (Platform.OS !== "web") {
+        if (Platform.OS == "web") {
           const { status } = await ImagePicker.launchImageLibraryAsync();
           if (status !== "granted") {
             Alert.alert("사진첩 권한", "사진첩 권한 설정 확인하세요");

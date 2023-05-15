@@ -33,4 +33,8 @@ export const theme = {
   imageBackground: colors.gray_0,
   imageButtonBackground: colors.gray_1,
   imageButtonIcon: colors.white,
+
+  // Spinner컴포넌트에서 사용
+  spinnerBackground: colors.black,
+  spinnerIndicator: colors.white,
 };
