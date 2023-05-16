@@ -42,6 +42,7 @@ const uploadImage = async (uri) => {
 
 export const getCurrentUser = () => {
   const { uid, displayName, email, photoURL } = auth.currentUser;
+  console.log(displayName);
   return { uid, name: displayName, email, photoUrl: photoURL };
 };
 

@@ -69,6 +69,7 @@ const Chatroom = ({ navigation, route }) => {
       snapshot.forEach((doc) => {
         list.push(doc.data());
       });
+      console.log(list);
       setMessage(list);
     });
     return () => unsubscribe();
@@ -104,7 +105,7 @@ const Chatroom = ({ navigation, route }) => {
           underlineColorAndroid: "transparent",
         }}
         multiline={false}
-        renderUsernameOnmessage={true}
+        renderUsernameOnMessage={true}
         scrollToBottom={true}
         renderSend={(props) => <SendButton {...props} />}
         renderBubble={(props) => <RenderBubble {...props} />}
