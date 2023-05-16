@@ -48,4 +48,8 @@ export const theme = {
   listTime: colors.red,
   listDescription: colors.gray_1,
   listIcon: colors.black,
+
+  //채팅에 사용
+  sendButtonActive: colors.blue,
+  sendButtonInactive: colors.gray_1,
 };
